@@ -1,0 +1,46 @@
+1. <p id="notice"></p>になり、中身は空になる。
+2. そのまま通る
+3. そのまま通る
+4. "User was successfully destroyed."
+
+# Microposts
+1. CSSを知っている読者へ: 新しいマイクロポストを作成し、ブラウザのHTMLインスペクター機能を使って「Micropost was successfully created.」の箇所を調べてみてください。ブラウザをリロードすると、その箇所はどうなるでしょうか?
+
+  <p id="notice">Micropost was successfully created.</p> でリロードすると空になる
+
+2. マイクロポストの作成画面で、ContentもUserも空にして作成しようとするどうなるでしょうか?
+  そのまま通る
+
+3. 141文字以上の文字列をContentに入力した状態で、マイクロポストを作成しようとするとどうなるでしょうか? (ヒント: WikipediaのRubyの記事にある１段落目がちょうど150文字程度ですが、どうなりますか?)
+  そのまま通る
+
+4. 上記の演習で作成したマイクロポストを削除してみましょう。
+
+  # 2.3.2
+  1. 先ほど2.3.1.1の演習でやったように、もう一度Contentに141文字以上を入力してみましょう。どのように振る舞いが変わったでしょうか?
+    Content is too long (maximum is 140 characters) と出るようになった。
+
+  2. CSSを知っている読者へ: ブラウザのHTMLインスペクター機能を使って、表示されたエラーメッセージを調べてみてください。
+    <div id="error_explanation">
+      <h2>1 error prohibited this micropost from being saved:</h2>
+
+      <ul>
+        <li>Content is too long (maximum is 140 characters)</li>
+      </ul>
+    </div>
+
+  # 2.3.3
+  1. ユーザーのshowページを編集し、ユーザーの最初のマイクロポストを表示してみましょう。同ファイル内の他のコードから文法を推測してみてください (コラム 1.1で紹介した技術の出番です)。うまく表示できたかどうか、/users/1 にアクセスして確認してみましょう。
+
+  2. リスト 2.16は、マイクロポストのContentが存在しているかどうかを検証するバリデーションです。マイクロポストが空でないことを検証できているかどうか、実際に試してみましょう (図 2.16のようになっていると成功です)。
+
+
+  3. リスト 2.17のFILL_INとなっている箇所を書き換えて、Userモデルのnameとemailが存在していることを検証してみてください (図 2.17)。
+
+  # 2.3.4
+  演習
+  1. Applicationコントローラのファイルを開き、ApplicationControllerがActionController::Baseを継承している部分のコードを探してみてください。
+    １行目
+
+  2. ApplicationRecordがActiveRecord::Baseを継承しているコードはどこにあるでしょうか? 先ほどの演習を参考に、探してみてください。ヒント: コントローラと本質的には同じ仕組みなので、app/modelsディレクトリ内にあるファイルを調べてみると...?)
+    app/models/application_record.rb 1行目
